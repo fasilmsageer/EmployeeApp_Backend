@@ -27,5 +27,10 @@ public class EmployeeController {
         return "Edit employee";
     }
 
+    @GetMapping("/view")
+    public String viewemployee(){
+        return "View employee";
+    }
+
 
 }
