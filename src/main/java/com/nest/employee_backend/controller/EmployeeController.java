@@ -17,5 +17,10 @@ public class EmployeeController {
         return "Add employee";
     }
 
+    @GetMapping("/search")
+    public String searchemployee(){
+        return "Search employee";
+    }
+
 
 }
