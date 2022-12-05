@@ -1,28 +1,29 @@
 package com.nest.employee_backend.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 
 public class EmployeeController {
 
-    @GetMapping("/")
+    @PostMapping("/")
     public String welcome(){
         return "Welcome employee";
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public String addemployee(){
         return "Add employee";
     }
 
-    @GetMapping("/search")
+    @PostMapping("/search")
     public String searchemployee(){
         return "Search employee";
     }
 
-    @GetMapping("/edit")
+    @PostMapping("/edit")
     public String editemployee(){
         return "Edit employee";
     }
@@ -32,7 +33,7 @@ public class EmployeeController {
         return "View employee";
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public String deleteemployee(){
         return "Delete employee";
     }
