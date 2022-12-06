@@ -1,5 +1,8 @@
 package com.nest.employee_backend.dao;
 
-public inteerface EmployeeDao extend CrudRepository {
+import com.nest.employee_backend.model.Employee;
+import org.springframework.data.repository.CrudRepository;
+
+public interface EmployeeDao extends CrudRepository<Employee, Integer> {
 
 }
