@@ -13,6 +13,8 @@ public class Employee {
     @GeneratedValue
 
     private int id;
+
+    private String empcode;
     private String name;
     private String designation;
     private String salary;
@@ -25,8 +27,9 @@ public class Employee {
 
     }
 
-    public Employee(int id, String name, String designation, String salary, String companyname, String mobnumber, String username, String password) {
+    public Employee(int id, String empcode, String name, String designation, String salary, String companyname, String mobnumber, String username, String password) {
         this.id = id;
+        this.empcode = empcode;
         this.name = name;
         this.designation = designation;
         this.salary = salary;
@@ -42,6 +45,14 @@ public class Employee {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getEmpcode() {
+        return empcode;
+    }
+
+    public void setEmpcode(String empcode) {
+        this.empcode = empcode;
     }
 
     public String getName() {

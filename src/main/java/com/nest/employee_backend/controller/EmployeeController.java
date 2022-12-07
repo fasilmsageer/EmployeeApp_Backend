@@ -21,7 +21,7 @@ public class EmployeeController {
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/addemp", consumes = "application/json", produces = "application/json")
     public String addemployee(@RequestBody Employee e){
-
+        System.out.println(e.getEmpcode().toString());
         System.out.println(e.getName().toString());
         System.out.println(e.getDesignation().toString());
         System.out.println(e.getSalary().toString());
@@ -33,10 +33,12 @@ public class EmployeeController {
         dao.save(e);
         return "Employee added Successfully";
     }
-
-    @PostMapping("/search")
-    public String searchemployee(){
-        return "Search employee";
+    @CrossOrigin(origins = "*")
+    @PostMapping(path="/searchemp", consumes = "application/json", produces = "application/json")
+    public List<Employee> SearchEmployee(@RequestBody Employee e){
+        String empcode = String.valueOf(e.getEmpcode()) ;
+        System.out.println(empcode);
+        return (List<Employee>) dao.SearchEmployee(e.getEmpcode());
     }
 
     @PostMapping("/edit")
@@ -45,7 +47,7 @@ public class EmployeeController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/view")
+    @GetMapping("/viewemp")
     public List<Employee> viewemployee(){
 
         return (List<Employee>) dao.findAll();
