@@ -45,7 +45,7 @@ public class EmployeeController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/view")
+    @GetMapping("/viewemp")
     public List<Employee> viewemployee(){
 
         return (List<Employee>) dao.findAll();
