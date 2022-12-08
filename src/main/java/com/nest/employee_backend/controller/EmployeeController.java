@@ -5,6 +5,7 @@ import com.nest.employee_backend.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -52,10 +53,16 @@ public class EmployeeController {
 
         return (List<Employee>) dao.findAll();
     }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path= "/deleteemp", consumes = "application/json", produces = "application/json")
+    public HashMap<String,String> deleteemployee(@RequestBody Employee e){
 
-    @PostMapping("/delete")
-    public String deleteemployee(){
-        return "Delete employee";
+        String empid=String.valueOf(e.getId());
+        System.out.println(empid);
+        dao.deleteEmployee(e.getId());
+        HashMap<String, String> map = new HashMap<>();
+        map.put("status","success");
+        return map;
     }
 
 
